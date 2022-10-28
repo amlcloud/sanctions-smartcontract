@@ -3,6 +3,7 @@ require("hardhat-gas-reporter");
 require("@nomiclabs/hardhat-ethers")
 require("@nomiclabs/hardhat-waffle")
 require("@nomiclabs/hardhat-etherscan")
+require('hardhat-config').config()
 require('dotenv').config()
 
 // This is a sample Hardhat task. To learn how to create your own go to
@@ -23,32 +24,28 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  */
 module.exports = {
   solidity: "0.8.1",
-  gasReporter: {
-    enabled: true,
-    gasPriceApi: "https://api.snowtrace.io/api?module=proxy&action=eth_gasPrice",
-    currency: 'USD',
-    coinmarketcap: process.env.CMC_APIKEY
-  },
+  // gasReporter: {
+  //   enabled: true,
+  //   gasPriceApi: "https://api.snowtrace.io/api?module=proxy&action=eth_gasPrice",
+  //   currency: 'USD',
+  //   coinmarketcap: process.env.CMC_APIKEY
+  // },
   networks: {
     fuji: {
-      url: process.env.FUJI_WEB3_PROVIDER_ADDRESS ?? "",
-      accounts: [process.env.MNEMONIC ?? ""],
+      url: process.env.FUJI_PROVIDER_ADDRESS ?? "",
+      accounts: [process.env.MAINNET_PRIVATE_KEY ?? ""],
     },
-    ropsten: {
-      url: process.env.ROPSTEN_RPC_URL ?? "",
-      accounts: [process.env.MNEMONIC ?? ""],
-    },
-    mainnet: {
+    main: {
       url: process.env.WEB3_PROVIDER_ADDRESS ?? "",
-      // accounts: [process.env.MAINNET_PRIVATE_KEY ?? ""],
+      accounts: [process.env.MAINNET_PRIVATE_KEY ?? ""],
     },
     hardhat: {
-      chainId: 1337,
+      chainId: 1,
       // gasPrice: 1,
       // initialBaseFeePerGas: 0,
     },
   },
-  etherscan: {
-    apiKey: process.env.ETHERSCAN_API,
-  },
+  // etherscan: {
+  //   apiKey: process.env.ETHERSCAN_API,
+  // },
 };

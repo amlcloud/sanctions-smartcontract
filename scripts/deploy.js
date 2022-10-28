@@ -2,10 +2,10 @@ const { ethers } = require("hardhat");
 
 async function main() {
 
-  const _artToken = await ethers.getContractFactory("ArtToken");
-  const artToken = await _artToken.deploy("Sanctions","Flea");
+  const _sanctions = await ethers.getContractFactory("SanctionsContract");
+  const sanctions = await _sanctions.deploy("0x9e396f24664cea9941F5b909193fa1D3488713E7");
 
-  console.log("Art ERC721 Smart Contract deployed to:", artToken.address);
+  console.log("Sanctions Smart Contract deployed to:", sanctions.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
