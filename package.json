@@ -24,6 +24,6 @@
     "chai": "^4.3.6",
     "dotenv": "^16.0.0",
     "hardhat-gas-reporter": "^1.0.8",
-    "hardhat-setting": "^1.0.0"
+    "hardhat-conf": "^1.0.0"
   }
 }
