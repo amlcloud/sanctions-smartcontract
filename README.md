@@ -1,6 +1,7 @@
 # sanctions-smartcontract
 
-1. Run npm install
+To deploy smart contract on Etherium network, run:
+1. npm install
 2. npx hardhat compile
 3. npm run deploy-main
 
